@@ -3,6 +3,7 @@
     --text:#212121;
     --active:#2196F3;
     --footer:#2F303A;
+    --cubic:cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
     font-family: 'roboto';
@@ -81,6 +82,8 @@ p{
 }
 .site-nav .link:hover,
 .site-nav .link:focus {
+    transition: transform 250ms var(--cubic);
+    transition-timing-function: var(--cubic);
     color: var(--active);
 }
 .site-aut .link {
@@ -97,6 +100,8 @@ p{
 }
 .site-aut .link:hover,
 .site-aut .link:focus {
+    transition: transform 250ms var(--cubic);
+    transition-timing-function: var(--cubic);
     color: var(--active);
 }
 .list {
@@ -108,7 +113,15 @@ p{
 .web, .list .current{
     color: var(--active);
 }
-
+.current::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    top: 77px;
+    background-color: var(--active);
+    border-radius: 2px;
+}
 .site-aut .link:not(:last-child) {
     margin-right: 50px;
 }
@@ -119,7 +132,10 @@ p{
     gap: 10;
     display: flex;
 }
-
+.site-nav .link {
+    position: relative;
+    display: flex;
+}
 /* main */
 .section-hero {
     max-width: 1600px;
@@ -167,6 +183,8 @@ p{
 .btn, .hero-btn {cursor: pointer;}
 
 .btn:hover {
+    transition: transform 250ms var(--cubic);
+    transition-timing-function: var(--cubic);
     color: #ffffff;
     background-color: var(--active);
     box-shadow: 0px 3px 1px rgb(0 0 0 / 10%), 0px 1px 2px rgb(0 0 0 / 8%), 0px 2px 2px rgb(0 0 0 / 12%);
@@ -175,6 +193,8 @@ p{
 .btn:hover,
 .btn:focus, 
 .hero-btn {
+    transition: transform 250ms var(--cubic);
+    transition-timing-function: var(--cubic);
     color: #ffffff; ;
     background-color: var(--active);
 }
@@ -303,6 +323,8 @@ margin-right: 30px;
 }
 .link-team:hover,
 .link-team:focus {
+    transition: transform 250ms var(--cubic);
+    transition-timing-function: var(--cubic);
     fill: #FFFFFF;
     background-color: var(--active);
 }
@@ -356,6 +378,8 @@ border-radius: 0px 0px 4px 4px;
 }
 .link-clients:hover,
 .link-clients:focus  {
+    transition: transform 250ms var(--cubic);
+    transition-timing-function: var(--cubic);
     border: 1px solid var(--active);
     fill: var(--active);
 
@@ -445,6 +469,8 @@ margin-bottom: 20px;
 .social-footer:focus {
     fill: #FFFFFF;
     background-color: var(--active);
+    transition: transform 250ms var(--cubic);
+    transition-timing-function: var(--cubic);
 }
 .container-icon {
     margin-left: 70px; 
@@ -531,12 +557,16 @@ img {
 }
 
 .item-cat:hover {
+    transition: transform 250ms var(--cubic);
+    transition-timing-function: var(--cubic);
     background: #FFFFFF;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .img-cat:hover .text-cat{
     transform: translateY(0);
+    transition: transform 250ms var(--cubic);
+    transition-timing-function: var(--cubic);
 }
 .backdrop {
     position: fixed;
@@ -544,7 +574,9 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #2196F3;
+    background-color: rgba(0,0,0,0.2);
+    opacity: 1;
+    visibility: visible;
 }
 .backdrop.is-hidden {
     opacity: 0;
@@ -555,10 +587,12 @@ img {
     position: absolute;
     top: 50%;
     left: 50%;
-
-    transform: translate(-50%, -50%);
+    transform: translate(-50%,-50%) scale(1);
+    width: 528px;
+    height: 581px;
     background-color: #FFFFFF;
-    min-height: 300px;
-    min-width:400px ;
-    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 20%);
+    transition: transform 250ms var(--cubic);
+    transition-timing-function: var(--cubic);
 }
